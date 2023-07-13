@@ -1,4 +1,4 @@
-# Sleeping music
+# Life as code
 
 This project aims to create stupid and pointless automations that may or may not improve quality of my life <br>
 
