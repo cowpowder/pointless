@@ -1,32 +1,15 @@
+import sys
+from src.scripts.sleeping_music import play
 
-import urllib.parse
-import subprocess
-import requests
-import time
-import schedule
+if __name__ == "__main__":
 
-def autoplay_sleeping_music():
-    path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+    command = sys.argv[0]
 
-    query = 'sleeping music'
-    encoded_query = urllib.parse.quote(query)
+    if len(sys.argv) >= 3 and sys.argv[1] == '--time' or  sys.argv[1] == '-t':
+        some_time = sys.argv[2]
+        print(f"Setting youtube autoplay 'sleeping music' at {some_time} everyday.")
+        play(some_time)
+        
+    else:
+        print("Invalid parameter, try -t or --time")
 
-    url = f"https://www.youtube.com/results?search_query={encoded_query}&sp=EgJAAQ%253D%253D"
-
-    response = requests.get(url).text
-    b_list = []
-    for i in response.split(','):
-        if "/watch?v" in i:
-            b_list.append(i)
-
-    tmp = b_list[0].split("/watch?v")[1]
-    play_url = "https://www.youtube.com/watch?v"+tmp
-
-    subprocess.Popen([path, play_url])
-
-schedule.every().day.at("22:45").do(autoplay_sleeping_music)
-
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
