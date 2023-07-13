@@ -4,10 +4,11 @@ import subprocess
 import requests
 import time
 import schedule
+import datetime
 
+path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 
-def open_url():
-    path = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+def open_url(path):
 
     query = 'sleeping music'
     encoded_query = urllib.parse.quote(query)
@@ -25,10 +26,21 @@ def open_url():
 
     subprocess.Popen([path, play_url])
 
-def play(some_time):
+def play_youtube(some_time):
     schedule.every().day.at(some_time).do(open_url)
 
     while True:
         schedule.run_pending()
         time.sleep(1)
 
+
+def set_alarm(alarm_time, path=path):
+    while True:
+        current_time = datetime.datetime.now().strftime("%H:%M:%S")
+        if current_time == alarm_time:
+            print("Wake up!")
+            url = 'https://www.youtube.com/watch?v=GWXLPu8Ky9k&ab_channel=TheMSsoundeffects'
+            subprocess.Popen([path, url])
+            break
+        time.sleep(1)  # Check the time every second
+        
