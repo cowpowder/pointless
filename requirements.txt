@@ -1,7 +1,6 @@
 requests==2.31.0
 urllib
 subprocess
-requests
 time
 schedule
 sys

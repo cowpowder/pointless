@@ -1,3 +1,4 @@
-dump.yml
-example_block.py
+/bin
+/lib
+pyvenv.cfg
 
