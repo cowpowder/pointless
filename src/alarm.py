@@ -1,4 +1,4 @@
-from src.utils.functions import set_alarm
+from src.utils.functions import func
 import sys
               
 if __name__ == "__main__":
@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
         if 0 <= alarm_hour < 24 and 0 <= alarm_minute < 60:
             print(f"Alarm set for {alarm_time}")
-            set_alarm(alarm_time)
+            func.set_alarm(alarm_time)
 
     else:
         print("Invalid parameter, try -t or --time")

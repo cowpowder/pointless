@@ -1,6 +1,2 @@
 requests==2.31.0
-urllib
-subprocess
-time
-schedule
-sys
+schedule==1.2.0

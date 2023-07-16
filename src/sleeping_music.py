@@ -1,5 +1,6 @@
 import sys
-from src.utils.functions import play_youtube
+import os
+from src.utils.functions import func
 
 if __name__ == "__main__":
 
@@ -9,7 +10,8 @@ if __name__ == "__main__":
         print(sys.argv)
         some_time = sys.argv[2]
         print(f"Setting youtube autoplay 'sleeping music' at {some_time} everyday.")
-        play_youtube(some_time)
+
+        func.play_youtube(some_time)
         
     else:
         print("Invalid parameter, try -t or --time")
